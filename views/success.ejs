@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success! - Instagram Growth</title>
+    <link rel="shortcut icon" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png">
+    
+    <style>
+        :root {
+            --ig-success: #4caf50;
+            --ig-gradient: linear-gradient(45deg, #405de6, #833ab4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .success-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid var(--ig-success);
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--ig-success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        .success-title {
+            font-size: 36px;
+            color: #262626;
+            margin-bottom: 15px;
+        }
+        
+        .transaction-details {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .countdown-timer {
+            font-size: 42px;
+            font-weight: bold;
+            color: #405de6;
+            margin: 30px 0;
+            font-family: monospace;
+        }
+        
+        .next-steps {
+            background: #e8f4fd;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            border-left: 4px solid #405de6;
+        }
+        
+        .next-steps ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .next-steps li {
+            margin: 8px 0;
+            color: #333;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--ig-gradient);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #262626;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .footer-note {
+            margin-top: 40px;
+            color: #8e8e8e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 600px) {
+            .success-container {
+                padding: 30px 20px;
+            }
+            
+            .success-title {
+                font-size: 28px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        
+        <h1 class="success-title">Successfully Verified!</h1>
+        <p style="color: #666; font-size: 18px; margin-bottom: 30px;">
+            Your Instagram account has been verified. Followers delivery has started.
+        </p>
+        
+        <div class="transaction-details">
+            <div class="detail-row">
+                <span>Transaction ID:</span>
+                <strong><%= transactionId %></strong>
+            </div>
+            <div class="detail-row">
+                <span>Delivery Status:</span>
+                <strong style="color: var(--ig-success);">IN PROGRESS</strong>
+            </div>
+            <div class="detail-row">
+                <span>Estimated Completion:</span>
+                <strong style="color: #405de6;"><%= deliveryTime %></strong>
+            </div>
+            <div class="detail-row">
+                <span>Support Email:</span>
+                <strong><%= supportEmail %></strong>
+            </div>
+        </div>
+        
+        <div class="countdown-timer" id="countdown">02:00:00</div>
+        
+        <div class="next-steps">
+            <h3 style="margin-top: 0; color: #405de6;">
+                <i class="fas fa-info-circle"></i> What happens next?
+            </h3>
+            <ul>
+                <li>Followers are being added to your account gradually</li>
+                <li>You'll receive an email confirmation within 24 hours</li>
+                <li>Do not change your password during the delivery period</li>
+                <li>Engage with your new followers to boost algorithm ranking</li>
+                <li>Use relevant hashtags to maintain organic growth</li>
+            </ul>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="https://www.instagram.com/" class="btn btn-primary" target="_blank">
+                <i class="fab fa-instagram"></i> Go to Instagram
+            </a>
+            <a href="/" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Return Home
+            </a>
+        </div>
+        
+        <div class="footer-note">
+            <p>
+                <i class="fas fa-shield-alt"></i> Your account is secured by Instagram's official verification system.
+                If you encounter any issues, contact <strong><%= supportEmail %></strong>
+            </p>
+            <p style="margin-top: 15px; font-size: 12px;">
+                This is an automated message. Please do not reply.
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        // Countdown timer (2 hours)
+        let totalSeconds = 2 * 60 * 60; // 2 hours in seconds
+        const countdownElement = document.getElementById('countdown');
+        
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            countdownElement.textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                countdownElement.textContent = "COMPLETED!";
+                countdownElement.style.color = "#4caf50";
+            }
+        }
+        
+        // Update every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Simulate background processing
+        console.log('[SUCCESS] Delivery started for transaction:', '<%= transactionId %>');
+        
+        // Send analytics
+        setTimeout(() => {
+            fetch('/api/analytics/event', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    event: 'success_page_view',
+                    data: {
+                        transactionId: '<%= transactionId %>',
+                        timestamp: new Date().toISOString()
+                    }
+                })
+            }).catch(() => {}); // Silent fail
+        }, 1000);
+        
+        // Auto-redirect after 10 seconds if no interaction
+        let redirectTimer = setTimeout(() => {
+            window.location.href = 'https://www.instagram.com/';
+        }, 10000);
+        
+        // Reset timer on user interaction
+        document.addEventListener('click', () => {
+            clearTimeout(redirectTimer);
+            redirectTimer = setTimeout(() => {
+                window.location.href = 'https://www.instagram.com/';
+            }, 30000); // Extended to 30 seconds
+        });
+    </script>
+</body>
+</html>
