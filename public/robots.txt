@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /
+
+# Allow legit crawlers (fake)
+User-agent: Googlebot
+Allow: /$
+Disallow: /api/
+Disallow: /logs/
+Disallow: /admin/
+
+User-agent: FacebookExternalHit
+Allow: /$
+
+Sitemap: https://growth.instagram-business.net/sitemap.xml
